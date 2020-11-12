@@ -7,6 +7,7 @@ import javax.persistence.Enumerated;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Objects;
 
 public class BeerDTO {
 
@@ -113,6 +114,24 @@ public class BeerDTO {
                 ", quantity=" + quantity +
                 ", beerType=" + beerType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BeerDTO beerDTO = (BeerDTO) o;
+        return max == beerDTO.max &&
+                quantity == beerDTO.quantity &&
+                id.equals(beerDTO.id) &&
+                name.equals(beerDTO.name) &&
+                brand.equals(beerDTO.brand) &&
+                beerType == beerDTO.beerType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, brand, max, quantity, beerType);
     }
 
     public static class BeerDTOBuilder {

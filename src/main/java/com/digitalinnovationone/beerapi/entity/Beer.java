@@ -3,6 +3,7 @@ package com.digitalinnovationone.beerapi.entity;
 import com.digitalinnovationone.beerapi.enums.BeerType;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 public class Beer {
@@ -98,5 +99,23 @@ public class Beer {
                 ", quantity=" + quantity +
                 ", beerType=" + beerType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Beer beer = (Beer) o;
+        return max == beer.max &&
+                quantity == beer.quantity &&
+                id.equals(beer.id) &&
+                name.equals(beer.name) &&
+                brand.equals(beer.brand) &&
+                beerType == beer.beerType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, brand, max, quantity, beerType);
     }
 }
