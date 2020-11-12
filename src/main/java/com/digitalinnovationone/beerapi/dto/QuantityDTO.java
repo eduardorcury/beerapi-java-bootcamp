@@ -9,7 +9,7 @@ public class QuantityDTO {
     @Max(100)
     private int quantity;
 
-    QuantityDTO() {
+    public QuantityDTO() {
 
     }
 
@@ -29,7 +29,7 @@ public class QuantityDTO {
         return new QuantityDTOBuilder();
     }
 
-    private static class QuantityDTOBuilder {
+    public static class QuantityDTOBuilder {
 
         @NotNull
         @Max(100)

@@ -32,8 +32,8 @@ public class BeerController {
     }
 
     @GetMapping("/{name}")
-    public BeerDTO findByName(@PathVariable String beerName) throws BeerNotFoundException {
-        return beerService.findByName(beerName);
+    public BeerDTO findByName(@PathVariable String name) throws BeerNotFoundException {
+        return beerService.findByName(name);
     }
 
     @GetMapping

@@ -19,4 +19,5 @@ public enum BeerType {
     public String getDescription() {
         return description;
     }
+
 }
